@@ -7,6 +7,7 @@ import { fetchSingleSpotsEndpoint } from "../../../apis.js";
 import AdminDescription from "../../../components/AdminDescription.js";
 
 
+<<<<<<< HEAD
 // const products = [
 //   {
 //     id: 1,
@@ -19,6 +20,20 @@ import AdminDescription from "../../../components/AdminDescription.js";
 //   },
 //   // More products...
 // ]
+=======
+const products = [
+  {
+    id: 1,
+    name: 'Basic Tee',
+    href: '#',
+    imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg',
+    imageAlt: "Front of men's Basic Tee in black.",
+    price: '$35',
+    color: 'Black',
+  },
+  // More products...
+]
+>>>>>>> parent of 8ddea08 (some stuff)
 
 const crowdData = {
   labels: ['5PM', '6PM', '7PM', '8PM', '9PM', '10PM', '11PM'],
@@ -76,6 +91,7 @@ const navigation = [
 ]
 
 
+<<<<<<< HEAD
 export default function HallInfo() {
   const [data, setData] = useState(null)
   const [isLoading, setisLoading] = useState(true);
@@ -101,10 +117,24 @@ export default function HallInfo() {
   }, [hallId])
 
 
+=======
+export async function getServerSideProps() {
+  // Fetch data from external API
+  try {
+    const res = await fetch('https://ezydine.herokuapp.com/spot/all');
+    const data = await res.json()
+    return { props: {data: data} };
+  }
+  catch (error){
+    return { notFound: true };
+  }
+}
+>>>>>>> parent of 8ddea08 (some stuff)
 
 
   if (isLoading) {
     return (
+<<<<<<< HEAD
       <div className="text-center mx-2 bg-purple-200 text-purple-700 font-bold rounded p-2">
         Loading
       </div>
@@ -140,6 +170,29 @@ export default function HallInfo() {
 
 
         <div className="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
+=======
+      <div>
+        <div className="py-12 bg-white">
+          <Navbar />
+           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+             <div className="lg:text-center">
+               <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                 {spotData.hallName.replace("&#039;", "\'")}
+               </p>
+               <p className="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+               </p>
+             </div>
+             <div className="line-graph">
+               <Line
+                 data={crowdData}
+                 width={"100%"}
+                 height={"50rem"}
+                 style={{maxHeight:250}}
+               />
+             </div>
+         </div>
+         <div className="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
+>>>>>>> parent of 8ddea08 (some stuff)
           <h2 className="text-2xl font-extrabold tracking-tight text-gray-900">Menu Items</h2>
 
           <div className="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
